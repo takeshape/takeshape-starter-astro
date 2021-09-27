@@ -1,0 +1,65 @@
+---
+import ReactProduct from '../components/ReactProduct.jsx';
+import AstroProduct from '../components/AstroProduct.astro';
+
+    let products = null;
+    try{
+        const result = await fetch(
+                'https://api.takeshape.io/project/6cdbcc52-5697-475b-872e-fcb6fd0e00d0/v3/graphql',
+                {
+                    headers: {
+                        authorization: 'Bearer 3c1de7f9842f47cd98c8360a241a0eaa'
+                    },
+                    method: 'POST',
+                    body: JSON.stringify({            
+                        query: `query{
+                            getProductList{
+                                items{
+                                    _id
+                                    name
+                                    price
+                                    image{
+                                        sourceUrl
+                                    }
+                                    description
+                                }
+                            }
+                        }`
+                    })
+                }
+            );
+        
+        if(result.ok){
+            const resultJSON = await result.json();
+            products = resultJSON.data.getProductList.items;
+        } else {
+            throw new Error(`${result.status}: ${result.statusText}`);
+        }
+    } catch(error) {
+        console.log(error);
+    }
+---
+
+<html lang="en">
+<body>
+    <main>
+    <h1>Products from TakeShape:</h1> 
+    <div>
+        <h2>React Products</h2>
+        {
+            products.map((product, i)=>(
+                i > 1 ? null : <ReactProduct product={product}/>
+            ))
+        }
+    </div>
+    <div>
+        <h2>Astro Products</h2>
+        {
+            products.map((product)=>(
+                <AstroProduct product={product}/>
+            ))
+        }
+    </div>    
+    </main>
+</body>
+</html>
