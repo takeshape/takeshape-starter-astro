@@ -1,16 +1,12 @@
-import React from 'react';
-
 export default function ReactProduct({product}) {
     return (
-        <section key={product._id} style={{
-            width:"50%",
-            display:"flex",
-            flexDirection:"column",
-            margin:"2rem",
-            rowGap:"1rem"
+        <section style={{
+            display:'flex',
+            flexDirection:'column',
+            borderBottom:'1px solid black',        
         }}>            
-            <img src={product.image.sourceUrl}/>
-            <span>
+            <img style={{width:"100%"}} src={product.image.sourceUrl}/>
+            <span style={{marginTop:'1rem'}}>
                 <b>{product.name}</b>:
                 ${product.price}                
             </span>            

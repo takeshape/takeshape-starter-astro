@@ -1,42 +1,29 @@
-# Welcome to [Astro](https://astro.build)
+# TakeShape Starter Astro
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/snowpackjs/astro/tree/latest/examples/starter)
+The following is a guide to launching an Astro TakeShape project that injects Ecommerce data into your Astro project using React and Astro components.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
 
-## 🚀 Project Structure
+## Instructions
 
-Inside of your Astro project, you'll see the following folders and files:
+1. Create a TakeShape project with the pattern in this repo. The button below will deploy the project:
 
-```
-/
-├── public/
-│   ├── robots.txt
-│   └── favicon.ico
-├── src/
-│   ├── components/
-│   │   └── Tour.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+* <a href="https://app.takeshape.io/add-to-takeshape?repo=https://github.com/takeshape/takeshape-starter-astro/tree/main/.takeshape/pattern"><img alt="Deploy To TakeShape" src="https://camo.githubusercontent.com/1b580e3ce353d235bde0f376ca35b0fb26d685f3750a3013ae4b225dd3aaf344/68747470733a2f2f696d616765732e74616b6573686170652e696f2f32636363633832352d373062652d343331632d396261302d3130616233386563643361372f6465762f38653266376264612d306530382d346564652d613534362d3664663539626536613862622f4465706c6f79253230746f25323054616b65536861706525343032782e706e673f6175746f3d666f726d6174253243636f6d7072657373" width="205" height="38" data-canonical-src="https://images.takeshape.io/2cccc825-70be-431c-9ba0-10ab38ecd3a7/dev/8e2f7bda-0e08-4ede-a546-6df59be6a8bb/Deploy%20to%20TakeShape%402x.png?auto=format%2Ccompress" style="max-width:100%;"></a>
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+2. Follow our documentation to [create a read-only API Key](https://app.takeshape.io/docs/api/api-keys).
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+3. Find your API Endpoint by navigating to your project in the TakeShape web client and clicking on the Home tab. Scroll down, and you'll see your API Endpoint in the `Useful Snippets` section on the bottom right. Refer to the image below:
 
-Any static assets, like images, can be placed in the `public/` directory.
+![Useful Snippets](./images/useful-snippets.png)
 
-## 🧞 Commands
+4. In the terminal on your local machine, clone this repo with `git clone https://github.com/takeshape/takeshape-starter-astro`
 
-All commands are run from the root of the project, from a terminal:
+5. Open the project directory and edit `.env.example`. Replace `Your-Endpoint-Here` with your endpoint, and `Your-Api-Key-Here` with your TakeShape project's api key. When you're done, save it and rename the file to `.env`.
 
-| Command         | Action                                      |
-|:----------------|:--------------------------------------------|
-| `npm install`   | Installs dependencies                       |
-| `npm run dev`   | Starts local dev server at `localhost:3000` |
-| `npm run build` | Build your production site to `./dist/`     |
+6. Run `npm run dev` from the root directory of the project in your terminal.
 
-## 👀 Want to learn more?
+6. Open http://localhost:3000 in your favorite browser.
 
-Feel free to check [our documentation](https://github.com/snowpackjs/astro) or jump into our [Discord server](https://astro.build/chat).
+
+## Learn More
+
+Check out [our docs on this project](https://app.takeshape.io/docs/get-started/server/redwood) to learn how this example works.

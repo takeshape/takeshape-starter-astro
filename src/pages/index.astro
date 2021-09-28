@@ -5,10 +5,10 @@ import AstroProduct from '../components/AstroProduct.astro';
     let products = null;
     try{
         const result = await fetch(
-                'https://api.takeshape.io/project/6cdbcc52-5697-475b-872e-fcb6fd0e00d0/v3/graphql',
+                process.env.SNOWPACK_PUBLIC_TAKESHAPE_ENDPOINT,
                 {
                     headers: {
-                        authorization: 'Bearer 3c1de7f9842f47cd98c8360a241a0eaa'
+                        authorization: `Bearer ${process.env.SNOWPACK_PUBLIC_TAKESHAPE_KEY}`
                     },
                     method: 'POST',
                     body: JSON.stringify({            
@@ -41,25 +41,33 @@ import AstroProduct from '../components/AstroProduct.astro';
 ---
 
 <html lang="en">
+<head>
+    <style>
+        .demo-container{
+            display: flex;
+            column-gap: 2rem;
+            max-width: 100%;
+            overflow: hidden;            
+        }      
+    </style>
+</head>
 <body>
     <main>
-    <h1>Products from TakeShape:</h1> 
-    <div>
-        <h2>React Products</h2>
-        {
-            products.map((product, i)=>(
-                i > 1 ? null : <ReactProduct product={product}/>
-            ))
-        }
-    </div>
-    <div>
-        <h2>Astro Products</h2>
-        {
-            products.map((product)=>(
-                <AstroProduct product={product}/>
-            ))
-        }
-    </div>    
+        <h1>Products from TakeShape:</h1>
+        <div class="demo-container">
+            <div class="product-container">
+                <h2>React Products</h2>
+                {
+                    products.map(product=><ReactProduct product={product}/>)
+                }
+            </div>
+            <div class="product-container">
+                <h2>Astro Products</h2>
+                {
+                    products.reverse().map(product=><AstroProduct product={product}/>)
+                }
+            </div>    
+        </div>
     </main>
 </body>
 </html>

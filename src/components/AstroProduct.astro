@@ -1,12 +1,12 @@
 ---
 import { Markdown } from 'astro/components';
-const {product} = Astro.props;
+const { product } = Astro.props;
 ---
 
 <section>
-    <img src={product.image.sourceUrl} />
+    <img style="width:100%" src={product.image.sourceUrl} />
     <Markdown>
         **{product.name}**: ${product.price}
-        {product.description}
+        ### {product.description}
     </Markdown>
 </section>
