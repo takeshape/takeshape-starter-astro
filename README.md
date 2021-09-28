@@ -17,6 +17,8 @@ The following is a guide to launching an Astro TakeShape project that injects Ec
 
 4. In the terminal on your local machine, clone this repo with `git clone https://github.com/takeshape/takeshape-starter-astro`
 
+5. Install the dependencies with `npm install`.
+
 5. Open the project directory and edit `.env.example`. Replace `Your-Endpoint-Here` with your endpoint, and `Your-Api-Key-Here` with your TakeShape project's api key. When you're done, save it and rename the file to `.env`.
 
 6. Run `npm run dev` from the root directory of the project in your terminal.
